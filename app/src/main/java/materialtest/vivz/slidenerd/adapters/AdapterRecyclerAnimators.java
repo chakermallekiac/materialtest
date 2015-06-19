@@ -54,12 +54,18 @@ public class AdapterRecyclerAnimators extends RecyclerView.Adapter<AdapterRecycl
         if (position != -1) {
             mListData.remove(item);
             notifyItemRemoved(position);
+            //update the adapter to reflect the new set of dataSet
+            notifyItemRangeChanged(0, mListData.size());
+            notifyDataSetChanged();
         }
     }
 
     public void removeItem(int position) {
         mListData.remove(position);
         notifyItemRemoved(position);
+        //update the adapter to reflect the new set of dataSet
+        notifyItemRangeChanged(0, mListData.size());
+        notifyDataSetChanged();
     }
 
     @Override
